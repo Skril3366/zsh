@@ -1,6 +1,9 @@
 autoload -U colors && colors
 
-export LANG=en_US:UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8:ru_RU.UTF-8
+
 export BROWSER="firefox"
 export BSTINPUTS="/Users/alexandrragulin/Library/Application Support/MiKTeX/texmfs/install/bibtex/bst/ieeetran"
 export CPLUS_INCLUDE_PATH="/usr/local/Cellar/gcc/11.2.0_3:/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include"
