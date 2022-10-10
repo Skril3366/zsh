@@ -7,14 +7,14 @@ autoload -U colors && colors
 alias git='LANGUAGE=en_Us.UTF-8 git'
 
 export BROWSER="firefox"
-export BSTINPUTS="/Users/alexandrragulin/Library/Application Support/MiKTeX/texmfs/install/bibtex/bst/ieeetran"
+export BSTINPUTS="$HOME/Library/Application Support/MiKTeX/texmfs/install/bibtex/bst/ieeetran"
 export CPLUS_INCLUDE_PATH="/usr/local/Cellar/gcc/11.2.0_3:/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include"
 export EDITOR="nvim"
 export EDITOR="nvim"
-export PERSONAL_LIBRARY=/Users/alexandrragulin/Personal\ Library
+export PERSONAL_LIBRARY=$HOME/Personal\ Library
 export TERM="xterm-256color"
 export TERMINAL="alacritty"
-export ZK_NOTEBOOK_DIR="/Users/alexandrragulin/Personal Library/Obsidian/General/"
+export ZK_NOTEBOOK_DIR="$HOME/Personal Library/Obsidian/General/"
 
 # Needed for language server for java
 #export JDTLS_HOME="~/.config/nvim/LSP/jdtls"
@@ -52,8 +52,8 @@ zle_highlight=('paste:none')
 # beeping is annoying
 unsetopt BEEP
 
-export PATH="$PATH:/Users/alexandrragulin/Personal Library/bin/downloads"
-export PATH="$PATH:/Users/alexandrragulin/Personal Library/bin/personal"
+export PATH="$PATH:$HOME/Personal Library/bin/downloads"
+export PATH="$PATH:$HOME/Personal Library/bin/personal"
 export PATH="$PATH:/usr/local/bin" # do not move it
 export PATH="$PATH:/usr/local/opt/llvm/bin"
 export PATH="$PATH:/usr/local/sbin"
@@ -90,9 +90,9 @@ nvim -c :PackerSync -c :q!;
 nvim -c :TSUpdateSync -c :q!"
 alias c="cd ~/.config"
 alias picard="open * -a MusicBrainz\ Picard"
-alias d="cd /Users/alexandrragulin/Desktop"
-alias doc="cd /Users/alexandrragulin/Documents"
-alias down="cd /Users/alexandrragulin/Downloads"
+alias d="cd $HOME/Desktop"
+alias doc="cd $HOME/Documents"
+alias down="cd $HOME/Downloads"
 alias fdd="fd -t d"
 alias ff="fd | fzf"
 alias file_find="fd | fzf"
@@ -107,7 +107,7 @@ alias msync="sudo rsync -auvP --delete /Volumes/Music/ /Volumes/Storage/Media/Mu
 alias osync="sudo rsync -auvP --delete ~/Personal\ Library/Obsidian/ /Volumes/Storage/Personal\ Library/Obsidian"
 alias libsync="sudo rsync -auvP --delete ~/Personal\ Library/ /Volumes/Storage/Personal\ Library/"
 # alias obsdaily="~/Personal Library/Obsidian/General/scripts/date.sh > '$(find ~/Personal\ Library/Obsidian/General/ | ggrep "Daily Notes MOC\.md")' "
-alias zc="nvim /Users/alexandrragulin/.config/zsh/.zshrc"
+alias zc="nvim $HOME/.config/zsh/.zshrc"
 alias v="nvim"
 # alias h="cd ~"
 alias ip="curl ifconfig.me"
@@ -116,7 +116,7 @@ alias o="cd ~/Personal Library/Obsidian/General/"
 #alias pip="pip3"
 alias pipUpdate="pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U"
 #alias redpdf="gs -sDEVICE=pdfwrite -dPDFSETTINGS=/printer -dNOPAUSE -dQUIET -dBATCH -sOutputFile=output.pdf"
-#alias todo="/usr/local/bin/todotxt-machine /Users/alexandrragulin/Documents/Obsidian/ToDoLists/todo.txt"
+#alias todo="/usr/local/bin/todotxt-machine $HOME/Documents/Obsidian/ToDoLists/todo.txt"
 #alias tree="tree -N"
 alias zconf="nvim ~/.config/.zshrc"
 alias eng="cd ~/Documents/Inno/EAP"
@@ -133,7 +133,7 @@ alias snip='cd ~/.local/share/nvim/site/pack/packer/start/friendly-snippets/snip
 # Plugins
 source "$HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 source "$HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
-# source "/Users/alexandrragulin/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+# source "$HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 eval "$(zoxide init zsh)"
 
 fpath+=($HOME/.config/zsh/plugins/pure)
