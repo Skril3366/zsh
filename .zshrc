@@ -1,8 +1,10 @@
 autoload -U colors && colors
 
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-export LANGUAGE=en_US.UTF-8:ru_RU.UTF-8
+# export LANG=en_US.UTF-8
+# export LC_ALL=en_US.UTF-8
+# export LANGUAGE=en_US.UTF-8:ru_RU.UTF-8
+
+alias git='LANGUAGE=en_Us.UTF-8 git'
 
 export BROWSER="firefox"
 export BSTINPUTS="/Users/alexandrragulin/Library/Application Support/MiKTeX/texmfs/install/bibtex/bst/ieeetran"
