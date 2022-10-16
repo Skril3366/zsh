@@ -17,17 +17,11 @@ export BROWSER="firefox"
 export BSTINPUTS="$HOME/Library/Application Support/MiKTeX/texmfs/install/bibtex/bst/ieeetran"
 export CPLUS_INCLUDE_PATH="/usr/local/Cellar/gcc/11.2.0_3:/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include"
 export EDITOR="nvim"
-export EDITOR="nvim"
 export PERSONAL_LIBRARY=$HOME/Personal\ Library
 export TERM="xterm-256color"
 export TERMINAL="alacritty"
 export ZK_NOTEBOOK_DIR="$HOME/Personal Library/Obsidian/General/"
 
-# Needed for language server for java
-#export JDTLS_HOME="~/.config/nvim/LSP/jdtls"
-
-#export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_301.jdk/"
-# LC_ALL='C'
 
 bindkey -v
 
@@ -49,9 +43,9 @@ SAVEHIST=10000
 HISTFILE=~/.config/zsh/history
 setopt appendhistory
 
-
 # some useful options (man zshoptions)
-setopt autocd extendedglob nomatch menucomplete
+setopt  extendedglob nomatch menucomplete
+unsetopt autocd
 setopt interactive_comments
 stty stop undef		# Disable ctrl-s to freeze terminal.
 zle_highlight=('paste:none')
@@ -66,8 +60,6 @@ export PATH="$PATH:/usr/local/opt/llvm/bin"
 export PATH="$PATH:/usr/local/sbin"
 export PATH="$PATH:/usr/sbin"
 export PATH="$PATH:~/.local/share/nvim/lsp_servers"
-# MacPorts Installer
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 
 # Aliases
 
@@ -89,7 +81,7 @@ url2file(){
 # alias ls="ls -GFh"
 alias graveyard="find /tmp/ -type f| ggrep 'graveyard-'"
 alias hist="cat ~/.config/zsh/history | sort | uniq|  fzf"
-# alias mdl="pbpaste | xargs -I {} spotdl '{}'"
+alias sdl="pbpaste | xargs -I {} spotdl download '{}'"
 alias mdl="pbpaste | xargs -I {} yt-dlp --format bestaudio --audio-format mp3 --extract-audio --output '%(playlist_index)s. %(title)s.%(ext)s' '{}'"
 alias vdl="pbpaste | xargs -I {} yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4 '{}' -o '%(title)s.%(ext)s' "
 alias update="brew update; brew upgrade;
@@ -129,7 +121,6 @@ alias zconf="nvim ~/.config/.zshrc"
 alias eng="cd ~/Documents/Inno/EAP"
 alias hideicons="defaults write com.apple.finder CreateDesktop false; killall Finder"
 alias showicons="defaults write com.apple.finder CreateDesktop true; killall Finder"
-alias todo="nvim ~/Personal\ Library/Org/Phone.org"
 alias notes="find ~/Personal\ Library/Obsidian/General | fzf | xargs -I {} nvim '{}'"
 alias coverformat='find .| ggrep ".jpg" | xargs -I {} convert {} -resize 500x500 "{}"'
 alias conf='nvim ~/.config/'
@@ -157,3 +148,7 @@ prompt pure
 
 # setopt PROMPT_SUBST
 # PROMPT='%F{red}%~${vcs_info_msg_0_}>%f '
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
