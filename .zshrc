@@ -40,8 +40,14 @@ zle -N down-line-or-beginning-search
 # History
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=~/.config/zsh/history
+HISTFILE="$HOME/.config/zsh/history"
 setopt appendhistory
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_FIND_NO_DUPS
+setopt HIST_SAVE_NO_DUPS
 
 # some useful options (man zshoptions)
 setopt  extendedglob nomatch menucomplete
@@ -57,6 +63,7 @@ export PATH="$PATH:$HOME/Personal Library/bin/downloads"
 export PATH="$PATH:$HOME/Personal Library/bin/personal"
 export PATH="$PATH:/usr/local/bin" # do not move it
 export PATH="$PATH:/usr/local/opt/llvm/bin"
+export PATH="$PATH:/opt/homebrew/bin"
 export PATH="$PATH:/usr/local/sbin"
 export PATH="$PATH:/usr/sbin"
 export PATH="$PATH:~/.local/share/nvim/lsp_servers"
