@@ -1,31 +1,44 @@
 autoload -U colors && colors
 
-export LANGUAGE=en_US.UTF-8: #ru_RU.UTF-8
+# Directory with user-defined configurations files
+USER_CONFIG="$HOME/.config/zsh/usr"
+PLUGINS="$HOME/.config/zsh/plugins"
 
-export LC_ADDRESS=ru_RU.UTF-8
-export LC_ALL=en_US.UTF-8
-export LC_IDENTIFICATION=ru_RU.UTF-8
-export LC_MEASUREMENT=ru_RU.UTF-8
-export LC_MONETARY=ru_RU.UTF-8
-export LC_NAME=ru_RU.UTF-8
-export LC_NUMERIC=ru_RU.UTF-8
-export LC_PAPER=ru_RU.UTF-8
-export LC_TELEPHONE=ru_RU.UTF-8
-export LC_TIME=ru_RU.UTF-8
+source "$USER_CONFIG/path.zsh"
+source "$USER_CONFIG/options.zsh"
+source "$USER_CONFIG/locale.zsh"
+source "$USER_CONFIG/history.zsh"
 
-export BROWSER="firefox"
+# Plugins
+source "$PLUGINS/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
+source "$PLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "$PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+eval "$(zoxide init zsh)"
+
+fpath+=($HOME/.config/zsh/plugins/pure)
+
+autoload -U promptinit; promptinit
+prompt pure
+
+
 export BSTINPUTS="$HOME/Library/Application Support/MiKTeX/texmfs/install/bibtex/bst/ieeetran"
 export CPLUS_INCLUDE_PATH="/usr/local/Cellar/gcc/11.2.0_3:/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include"
+
+export BROWSER="firefox"
 export EDITOR="nvim"
-export PERSONAL_LIBRARY=$HOME/Personal\ Library
 export TERM="xterm-256color"
 export TERMINAL="alacritty"
-export ZK_NOTEBOOK_DIR="$HOME/Personal Library/Obsidian/General/"
 
+export PERSONAL_LIBRARY=$HOME/Personal\ Library
 
-bindkey -v
 
 # Autocompletion
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+fi
+
 autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' menu select
 zmodload zsh/complist
@@ -37,17 +50,6 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 
 
-# History
-HISTSIZE=10000
-SAVEHIST=10000
-HISTFILE="$HOME/.config/zsh/history"
-setopt appendhistory
-setopt HIST_EXPIRE_DUPS_FIRST
-setopt HIST_IGNORE_DUPS
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_IGNORE_SPACE
-setopt HIST_FIND_NO_DUPS
-setopt HIST_SAVE_NO_DUPS
 
 # some useful options (man zshoptions)
 setopt  extendedglob nomatch menucomplete
@@ -59,14 +61,6 @@ zle_highlight=('paste:none')
 # beeping is annoying
 unsetopt BEEP
 
-export PATH="$PATH:$HOME/Personal Library/bin/downloads"
-export PATH="$PATH:$HOME/Personal Library/bin/personal"
-export PATH="$PATH:/usr/local/bin" # do not move it
-export PATH="$PATH:/usr/local/opt/llvm/bin"
-export PATH="$PATH:/opt/homebrew/bin"
-export PATH="$PATH:/usr/local/sbin"
-export PATH="$PATH:/usr/sbin"
-export PATH="$PATH:~/.local/share/nvim/lsp_servers"
 
 # Aliases
 
@@ -135,18 +129,6 @@ alias snip='cd ~/.local/share/nvim/site/pack/packer/start/friendly-snippets/snip
 
 #source /usr/local/Cellar/zsh-syntax-highlighting/0.7.1/share/zsh-syntax-highlighting
 
-# Plugins
-source "$HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-source "$HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
-source "$HOME/.config/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
-# source "$HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-eval "$(zoxide init zsh)"
-
-fpath+=($HOME/.config/zsh/plugins/pure)
-
-autoload -U promptinit; promptinit
-prompt pure
-
 
 # autoload -Uz vcs_info
 # precmd () { vcs_info }
@@ -159,3 +141,4 @@ prompt pure
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+export PATH="$PATH:/Users/a.ragulin/Library/Application Support/Coursier/bin"
