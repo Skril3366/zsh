@@ -1,9 +1,11 @@
-
-export PATH="$PATH:$HOME/Personal Library/bin/downloads"
-export PATH="$PATH:$HOME/Personal Library/bin/personal"
-export PATH="$PATH:/usr/local/bin" # do not move it
-export PATH="$PATH:/usr/local/opt/llvm/bin"
-export PATH="$PATH:/opt/homebrew/bin"
-export PATH="$PATH:/usr/local/sbin"
-export PATH="$PATH:/usr/sbin"
-export PATH="$PATH:~/.local/share/nvim/lsp_servers"
+export PATH="$HOME/Personal Library/bin/downloads:$PATH"
+export PATH="$HOME/Personal Library/bin/personal:$PATH"
+export PATH="/usr/local/bin:$PATH" # do not move it
+export PATH="/usr/local/opt/llvm/bin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/sbin:$PATH"
+export PATH="$HOME/.local/share/nvim/lsp_servers:$PATH"
+export PATH="/opt/homebrew/Cellar/node@16/16.18.1/bin/:$PATH"
+export PATH="/Users/a.ragulin/Library/Python/3.9/bin:$PATH"
+export PATH="/opt/homebrew/sbin:$PATH"
