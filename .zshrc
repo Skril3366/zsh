@@ -1,10 +1,11 @@
+#!/bin/bash
 autoload -U colors && colors
 
 # Load all user configuration recursively from specified folder
 user_config_folder="$HOME/.config/zsh/usr"
 user_config=($(find "$user_config_folder" -type f))
 for c in "${user_config[@]}"; do
-  source "${c}"
+    source "${c}"
 done
 
 # Load all the plugins
@@ -15,9 +16,9 @@ plugins=(
     "zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 )
 for p in "${plugins[@]}"; do
-  source "$plugins_folder/${p}"
+    source "$plugins_folder/${p}"
 done
-fpath+=($HOME/.config/zsh/plugins/pure)
+fpath+=("$HOME/.config/zsh/plugins/pure")
 
 
 eval "$(zoxide init zsh)"
@@ -40,7 +41,7 @@ export PERSONAL_LIBRARY=$HOME/Personal\ Library
 # Autocompletion
 if type brew &>/dev/null
 then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+    FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 fi
 
 autoload -Uz compinit && compinit
@@ -60,7 +61,7 @@ setopt  extendedglob nomatch menucomplete
 unsetopt autocd
 setopt interactive_comments
 stty stop undef		# Disable ctrl-s to freeze terminal.
-zle_highlight=('paste:none')
+export zle_highlight=('paste:none')
 
 # beeping is annoying
 unsetopt BEEP
@@ -81,6 +82,11 @@ unsetopt BEEP
 # PROMPT='%F{red}%~${vcs_info_msg_0_}>%f '
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-export PATH="$PATH:/Users/a.ragulin/Library/Application Support/Coursier/bin"
+if [[ -s "/Users/roberto/.sdkman/bin/sdkman-init.sh" ]]
+then
+    export SDKMAN_DIR="$HOME/.sdkman"
+    [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+    export PATH="$PATH:/Users/a.ragulin/Library/Application Support/Coursier/bin"
+fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
