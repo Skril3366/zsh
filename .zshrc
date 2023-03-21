@@ -37,7 +37,6 @@ export TERMINAL="alacritty"
 
 export PERSONAL_LIBRARY=$HOME/Personal\ Library
 
-
 # Autocompletion
 if type brew &>/dev/null
 then
@@ -54,8 +53,6 @@ autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 
-
-
 # some useful options (man zshoptions)
 setopt  extendedglob nomatch menucomplete
 unsetopt autocd
@@ -66,27 +63,10 @@ export zle_highlight=('paste:none')
 # beeping is annoying
 unsetopt BEEP
 
-
-# Aliases
-
-
-#source /usr/local/Cellar/zsh-syntax-highlighting/0.7.1/share/zsh-syntax-highlighting
-
-
-# autoload -Uz vcs_info
-# precmd () { vcs_info }
-# # zstyle ':vcs_info:*' formats ' %s(%F{red}%b%f)'
-# zstyle ':vcs_info:git*' formats '  %b'
-
-# setopt PROMPT_SUBST
-# PROMPT='%F{red}%~${vcs_info_msg_0_}>%f '
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-if [[ -s "/Users/roberto/.sdkman/bin/sdkman-init.sh" ]]
+if [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]]
 then
     export SDKMAN_DIR="$HOME/.sdkman"
     [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-    export PATH="$PATH:/Users/a.ragulin/Library/Application Support/Coursier/bin"
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
