@@ -15,4 +15,4 @@ alias fdd="fd -t d"
 alias ff="fd | fzf"
 alias file_find="fd | fzf"
 
-alias ll="ls -GFlah"
+alias ll="ls -Flah"
