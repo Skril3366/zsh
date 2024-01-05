@@ -1,11 +1,17 @@
 #!/bin/bash
 
-export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
+# Folder where all the important things are
+export VAULT="$HOME/Vault/"
 
+export BROWSER="firefox"
+export EDITOR="nvim"
+export TERM="xterm-256color"
+export TERMINAL="alacritty"
 
-eval "$(starship init zsh)"
-
+# Prompt
 autoload -U colors && colors
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
+eval "$(starship init zsh)"
 
 # Load all user configuration recursively from specified folder
 user_config_folder="$HOME/.config/zsh/usr"
@@ -24,23 +30,13 @@ plugins=(
 for p in "${plugins[@]}"; do
     source "$plugins_folder/${p}"
 done
-# fpath+=("$HOME/.config/zsh/plugins/pure")
 
 
 eval "$(zoxide init zsh)"
 
-# autoload -U promptinit; promptinit
-# prompt pure
 
 export BSTINPUTS="$HOME/Library/Application Support/MiKTeX/texmfs/install/bibtex/bst/ieeetran"
 export CPLUS_INCLUDE_PATH="/usr/local/Cellar/gcc/11.2.0_3:/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include"
-
-export BROWSER="firefox"
-export EDITOR="nvim"
-export TERM="xterm-256color"
-export TERMINAL="alacritty"
-
-export PERSONAL_LIBRARY=$HOME/Personal\ Library
 
 # Autocompletion
 if type brew &>/dev/null

@@ -1,6 +1,3 @@
-[submodule "plugins/pure"]
-	path = plugins/pure
-	url = https://github.com/sindresorhus/pure
 [submodule "plugins/zsh-autosuggestions"]
 	path = plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
