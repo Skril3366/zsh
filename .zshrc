@@ -1,4 +1,10 @@
 #!/bin/bash
+
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
+
+
+eval "$(starship init zsh)"
+
 autoload -U colors && colors
 
 # Load all user configuration recursively from specified folder
@@ -18,14 +24,13 @@ plugins=(
 for p in "${plugins[@]}"; do
     source "$plugins_folder/${p}"
 done
-fpath+=("$HOME/.config/zsh/plugins/pure")
+# fpath+=("$HOME/.config/zsh/plugins/pure")
 
 
 eval "$(zoxide init zsh)"
 
-
-autoload -U promptinit; promptinit
-prompt pure
+# autoload -U promptinit; promptinit
+# prompt pure
 
 export BSTINPUTS="$HOME/Library/Application Support/MiKTeX/texmfs/install/bibtex/bst/ieeetran"
 export CPLUS_INCLUDE_PATH="/usr/local/Cellar/gcc/11.2.0_3:/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include"
