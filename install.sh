@@ -1,33 +1,29 @@
 #!/bin/bash
-# Install all necessary things
 
-# echo -n "Enter a number: "
-# read VAR
+# Installs all necessary things
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	if type brew &>/dev/null; then
+		echo "Brew is installed"
+	else
+		echo "Installing Homebrew..."
+		echo "See https://brew.sh/"
+		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	fi
 
-# TODO:
-# add gnu core utils for mac
-# add brew for mac
-# add neovim
-# add git
-# brew install coreutils findutils gnu-tar gnu-sed gawk gnutls gnu-indent gnu-getopt grep
-# add rip
-# add fd
+  echo "Installing essentials"
+  brew install git neovim tmux lazygit
 
-install_brew(){
-    echo "Installing Homebrew..."
-    echo "See https://brew.sh/"
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-}
+	echo "Installing GNU coreutils..."
+	brew install coreutils findutils gnu-tar gnu-sed gawk gnutls gnu-indent gnu-getopt grep
 
-if [[ "$OSTYPE" == "darwin"* ]]
-then
-    if type brew &>/dev/null
-    then
-        echo "Brew is installed"
-    else
-        install_brew
-    fi
+	brew install starship
+
+	echo "Installing Rust..."
+	brew install rustup
+
+	echo "Installing applications from cargo..."
+	cargo install ripgrep
+	cargo install fd-find
 else
-  echo "Sorry, this system is not supported"
+	echo "Sorry, this system is not supported"
 fi
-
