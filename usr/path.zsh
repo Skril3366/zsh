@@ -1,7 +1,7 @@
 # Personal scripts
-if [ -d "$HOME/Personal Library/bin/downloads:$PATH" ]; then
-    export PATH="$HOME/Personal Library/bin/downloads:$PATH"
-    export PATH="$HOME/Personal Library/bin/personal:$PATH"
+if [ -d "$VAULT/bin/downloads:$PATH" ]; then
+    export PATH="$VAULT/bin/downloads:$PATH"
+    export PATH="$VAULT/bin/personal:$PATH"
 fi
 
 # Homebrew
