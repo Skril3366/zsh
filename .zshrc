@@ -11,7 +11,7 @@ export TERMINAL="alacritty"
 # Prompt
 autoload -U colors && colors
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
-eval "$(starship init zsh)"
+eval "$(/opt/homebrew/bin/starship init zsh)"
 
 # Load all user configuration recursively from specified folder
 user_config_folder="$HOME/.config/zsh/usr"
