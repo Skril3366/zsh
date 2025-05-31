@@ -17,7 +17,12 @@ export PATH="$HOME/.local/share/nvim/lsp_servers:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # Coursier https://get-coursier.io/
-export PATH="$PATH:/Users/a.ragulin/Library/Application Support/Coursier/bin"
+export PATH="$PATH:$HOME/Library/Application Support/Coursier/bin"
 
 # C/C++/Rust
 export PATH="/usr/local/opt/llvm/bin:$PATH"
+
+export PATH="$HOME/.local/bin:$PATH"
+
+# Haskell
+export PATH="$HOME/.ghcup/bin:$PATH"

@@ -1,7 +1,9 @@
 #!/bin/bash
 
+source "$HOME/.config/zsh/secrets.zsh"
+
 # Folder where all the important things are
-export VAULT="$HOME/Vault/"
+export VAULT="$HOME/Vault"
 
 export BROWSER="firefox"
 export EDITOR="nvim"
